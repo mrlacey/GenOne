@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Include href="KnownImageIds.vsct"/>
+  <Include href="VSGlobals.vsct"/>
+
+  <Commands package="GenOneCsGenerator">
+  </Commands>
+
+  <Symbols>
+
+	  <GuidSymbol name="CommandVisisiblity" value="{E0DBE5B2-5943-4376-8C31-54B314DCFA27}" />
+
+
+	  <GuidSymbol name="GenOneCsGenerator" value="{04D489B2-E54C-4245-9B5C-FA2AA222F4D8}">
+
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
