@@ -16,11 +16,11 @@ namespace GenOne
     [ProvideCodeGenerator(typeof(GenOneCsharpGenerator), GenOneCsharpGenerator.Name, GenOneCsharpGenerator.Description, true, RegisterCodeBase = true)]
     [ProvideCodeGeneratorExtension(GenOneCsharpGenerator.Name, ".gen1")]
     [ProvideUIContextRule(PackageGuids.CommandVisisiblityString,
-        name: "XAML files",
-        expression: "IsXaml",
-        termNames: new[] { "IsXaml" },
-        termValues: new[] { "HierSingleSelectionName:.xaml$" })]
-    internal class GenOnePackage : ToolkitPackage
+        name: "GenOne files",
+        expression: "IsGen1",
+        termNames: new[] { "IsGen1" },
+        termValues: new[] { "HierSingleSelectionName:.gen1" })]
+    public class GenOnePackage : ToolkitPackage
     {
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
