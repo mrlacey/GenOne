@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Install Testspace Module
+      uses: testspace-com/setup-testspace@v1
+      with:
+        domain: ${{ github.repository_owner }}
+
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -23,14 +29,7 @@ jobs:
       run: dotnet build LogicAndTestsOnly.slnf --no-restore
     - name: Test
       run: dotnet test LogicAndTestsOnly.slnf --no-build --verbosity normal /logger:"trx;LogFileName=GenOne.trx"
-      
-      
-
-    - name: Install Testspace Module
-      uses: testspace-com/setup-testspace@v1
-      with:
-        domain: ${{ github.repository_owner }}
-
+       
     - name: Create test reports
       run: |
         testspace './*.trx'
