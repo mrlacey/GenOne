@@ -8,4 +8,5 @@ public enum LexemeCategory
     Punctuation,
     EnumName,
     EnumValue,
+    BaseName,
 }

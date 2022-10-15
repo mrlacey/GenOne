@@ -25,6 +25,15 @@ public class CodeGenerator
                     break;
                 case LineCategory.TypeInheritence:
                     // TODO: Get inheritence details from the line and add to output
+                    var thisName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
+
+                    var baseName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.BaseName).Text;
+
+                    if (!gd.Types.Any(t => t.Name == thisName))
+                    {
+                        gd.Types.Add(new TypeToGenerate(thisName) { BaseClass = baseName });
+                    }
+
                     break;
                 case LineCategory.EnumDefinition:
                     // TODO: Get enum details from the line

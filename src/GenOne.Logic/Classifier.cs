@@ -18,13 +18,22 @@ public static class Classifier
     {
         // TODO: do the actual classification of the line (and each lexeme--or should that be done at the time of tokenizing?)
 
-        if (line.Lexemes.Count == 4
-            && line.Lexemes[0].Text == "let"
+        if (line.Lexemes.Count == 4)
+        {
+            if (line.Lexemes[0].Text == "let"
             && line.Lexemes[1].Text == "there"
             && line.Lexemes[2].Text == "be")
-        {
-            line.Lexemes[3].Category = LexemeCategory.TypeName;
-            line.Category = LineCategory.TypeDefinition;
+            {
+                line.Lexemes[3].Category = LexemeCategory.TypeName;
+                line.Category = LineCategory.TypeDefinition;
+            }
+            else if (line.Lexemes[0].Text == "the"
+            && line.Lexemes[2].Text == "is")
+            {
+                line.Lexemes[1].Category = LexemeCategory.TypeName;
+                line.Lexemes[3].Category = LexemeCategory.BaseName;
+                line.Category = LineCategory.TypeInheritence;
+            }
         }
         else if (line.Lexemes.Count >= 8
             && line.OriginalText.StartsWith("let there be")
