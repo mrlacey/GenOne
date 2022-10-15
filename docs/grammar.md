@@ -31,6 +31,7 @@ partial class User
 
 ```py
 class User:
+    pass
 ```
 
 ## Type Inheritance
@@ -52,7 +53,13 @@ partial class User : Person
 ```
 
 ```py
-class User(Person):```
+
+class Person:
+    pass
+
+class User(Person):
+    pass
+```
 
 ## Enum creation
 
@@ -79,13 +86,15 @@ enum UserType
 produces:
 
 ```py
-class UserType(Enum):
-    Attendee = 1
-    Helper = 2
-    Organiser = 3
-    Sponsor = 4
-```
 
+from enum import Enum, auto
+
+class UserType(Enum):
+    Attendee = auto()
+    Helper = auto()
+    Organiser = auto()
+    Sponsor = auto()
+```
 
 
 ## Property Definition 1 - simple
@@ -130,10 +139,11 @@ partial class Earth
 
 ```py
 class BodyOfWater:
+    pass
 
 class Earth:
-    def __init__(self, Seas):
-        self.seas = BodyOfWater(Seas)
+    def __init__(self, Seas: BodyOfWater):
+        self.seas = Seas
 ```
 
 ## Property Definition 2 - simple alternative
@@ -152,8 +162,9 @@ produces:
 
 ```cs
 partial class Sea
-    def __init__(self, Depth):
-        self.depth = Depth
+{
+    public string Depth { get; set; }
+}
 ```
 
 ```py
@@ -174,6 +185,12 @@ partial class Sea
 {
     public float Depth { get; set; }
 }
+```
+
+```py
+class Earth:
+    def __init__(self, Seas):
+        self.seas = Seas
 ```
 
 ## Property Definition 3 - collections
@@ -197,8 +214,9 @@ partial class Sea
 
 ```py
 
-class Sea
-    fish = []
+class Sea:
+    def __init__(self):
+        self.fish = []
 ```
 
 ## Property Definition 4 - required properties
@@ -225,6 +243,12 @@ partial class User
 }
 ```
 
+```py
+class User:
+    def __init__(self, Name):
+        self.name = Name
+```
+
 ## Method Definition
 
 **`'let the {typeName} {methodName} [{arg1}, ....]'`**
@@ -248,8 +272,8 @@ partial class Sun
 
 ```py
 class Sun:
-    def shine(self):
-    # empty - because this may need a definition
+    def Shine(self):
+        pass
 ```
 
 ```ascii
@@ -268,6 +292,7 @@ partial class Expanse
 ```py
 class Waters:
 
-class Expanse
-    def Separate(Waters waters):
+class Expanse:
+    def Separate(waters: Waters):
+        pass
 ```
