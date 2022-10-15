@@ -31,6 +31,18 @@ public static class Classifier
                 {
                     propLexme = line.Lexemes[4];
                 }
+                else if (propLexme.Text == "many")
+                {
+                    propLexme.Category = LexemeCategory.PluralIndicator;
+                    propLexme = line.Lexemes[4];
+                }
+                else if (propLexme.Text == "lots"
+                    && line.Lexemes[4].Text == "of")
+                {
+                    propLexme.Category = LexemeCategory.PluralIndicator;
+                    line.Lexemes[4].Category = LexemeCategory.PluralIndicator;
+                    propLexme = line.Lexemes[5];
+                }
 
                 propLexme.Category = LexemeCategory.PropertyName;
 

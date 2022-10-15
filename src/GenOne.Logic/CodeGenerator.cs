@@ -85,6 +85,11 @@ public class CodeGenerator
                         propType = datatypeLexeme.Text;
                     }
 
+                    if (line.Lexemes.Any(l => l.Category == LexemeCategory.PluralIndicator))
+                    {
+                        propType = $"IEnumerable<{propType}>";
+                    }
+
                     var newProp = new PropertyToGenerate(propName);
 
                     if (!string.IsNullOrEmpty(propType))

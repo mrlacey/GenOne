@@ -13,4 +13,5 @@ public enum LexemeCategory
     MethodArgument,
     PropertyName,
     PropertyType,
+    PluralIndicator,
 }
