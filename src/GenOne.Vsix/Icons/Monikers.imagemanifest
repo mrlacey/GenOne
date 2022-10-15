@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+    <Symbols>
+        <String Name="Resources" Value="/GenOne.VSIX;Component/Icons" />
+        <Guid Name="MonikersGuid" Value="{94F735F8-17D6-423D-A2CD-1DAD35210E31}" />
+        <ID Name="genone" Value="0" />
+    </Symbols>
+    <Images>
+        <Image Guid="$(MonikersGuid)" ID="$(genone)">
+            <Source Uri="$(Resources)/logo.png">
+                <Size Value="32" />
+            </Source>
+        </Image>
+    </Images>
+    <ImageLists />
+</ImageManifest>

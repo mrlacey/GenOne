@@ -9,9 +9,9 @@ namespace GenOne
     {
         public const string Id = "GenOne.f7f221c5-6a9c-42f4-b3c0-e2682cad6f68";
         public const string Name = "GenOne";
-        public const string Description = @"Empty VSIX Project.";
+        public const string Description = @"Create C# files from .gen1 docs";
         public const string Language = "en-US";
-        public const string Version = "0.1.1.6";
+        public const string Version = "1.0.0.3";
         public const string Author = "Matt Lacey";
         public const string Tags = "";
     }

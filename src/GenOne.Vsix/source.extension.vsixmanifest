@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="GenOne.f7f221c5-6a9c-42f4-b3c0-e2682cad6f68" Version="0.1.1.6" Language="en-US" Publisher="Matt Lacey" />
+        <Identity Id="GenOne.f7f221c5-6a9c-42f4-b3c0-e2682cad6f68" Version="1.0.0.3" Language="en-US" Publisher="Matt Lacey" />
         <DisplayName>GenOne</DisplayName>
-        <Description xml:space="preserve">Empty VSIX Project.</Description>
+        <Description xml:space="preserve">Create C# files from .gen1 docs</Description>
+        <MoreInfo>https://github.com/mrlacey/GenOne</MoreInfo>
+        <Icon>Resources\logo.png</Icon>
+        <PreviewImage>Resources\logo.png</PreviewImage>
         <Preview>true</Preview>
     </Metadata>
     <Installation>
@@ -15,6 +18,7 @@
     </Dependencies>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="icons.pkgdef" />
     </Assets>
     <Prerequisites>
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
