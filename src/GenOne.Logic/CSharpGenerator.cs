@@ -6,7 +6,7 @@ public static class CSharpGenerator
     {
         var toGenerate = DetermineGeneration(lines);
 
-        // TODO: do code generation based on the contentss of toGenerate
+        // TODO: do code generation based on the contents of toGenerate
         return "// some generated C# code";
     }
 
