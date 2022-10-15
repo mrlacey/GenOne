@@ -18,8 +18,6 @@ public static class Classifier
 
     public static TokenizedLine ClassifyLine(TokenizedLine line)
     {
-        // TODO: do the actual classification of the line (and each lexeme--or should that be done at the time of tokenizing?)
-
         if (line.Lexemes.Count >= 6)
         {
             if (line.Lexemes.Count == 6

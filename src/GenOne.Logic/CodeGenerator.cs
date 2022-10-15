@@ -57,8 +57,6 @@ public class CodeGenerator
                     gd.Enums.Add(enum2gen);
                     break;
                 case LineCategory.PropertyDefinition:
-                    // TODO: Get property details from the line and add to output
-
                     var typeForProperty = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
 
                     if (!gd.Types.Any(t => t.Name == typeForProperty))

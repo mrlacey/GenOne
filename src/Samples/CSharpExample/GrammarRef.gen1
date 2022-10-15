@@ -17,6 +17,7 @@ let the Sea have a NauticalDepth that's a float
 let there be lots of Fishes(Fish) in the Sea
 
 the User must have a Name
+the User must have an Age
 
 let the Sun Shine
 

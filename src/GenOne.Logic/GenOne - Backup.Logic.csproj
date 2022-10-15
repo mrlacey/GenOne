@@ -6,11 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Update="EnumToGenerate.gen1">
-      <Generator>GenOneCsharpGenerator</Generator>
-      <LastGenOutput>EnumToGenerate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
 </Project>

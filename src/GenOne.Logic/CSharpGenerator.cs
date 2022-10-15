@@ -45,17 +45,34 @@ public class CSharpGenerator : CodeGenerator
 
             sb.AppendLine("{");
 
-            foreach (var prop in type.Properties.Where(p => p.IsRequired))
+            var requiredProps = type.Properties.Where(p => p.IsRequired).ToList();
+
+            if (requiredProps.Any())
             {
-                // TODO: add constructor
+                sb.Append($"    public {type.Name}(");
 
+                var added = false;
 
-                ////foreach (var arg in meth.Args)
-                ////{
-                ////    sb.AppendLine($"        {arg.Name} = {arg.Name};");
-                ////}
+                foreach (var reqProp in requiredProps)
+                {
+                    if (added)
+                    {
+                        sb.Append(", ");
+                    }
 
-                ////sb.AppendLine("}}"); ;
+                    sb.Append($"{reqProp.DataType} {reqProp.Name}");
+
+                    added = true;
+                }
+
+                sb.AppendLine(") {");
+
+                foreach (var reqProp in requiredProps)
+                {
+                    sb.AppendLine($"        {reqProp.Name} = {reqProp.Name};");
+                }
+
+                sb.AppendLine("    }");
             }
 
             foreach (var prop in type.Properties)
