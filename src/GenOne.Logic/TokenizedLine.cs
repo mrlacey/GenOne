@@ -7,7 +7,13 @@ public class TokenizedLine
         LineNumber = number;
         OriginalText = text;
 
-        // TODO: implement the tokenization
+        // TODO: tokenize the tokenization better + add start & end values
+        var words = text.Split(new[] { " " }, System.StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (var word in words)
+        {
+            Lexemes.Add(new Lexeme(word));
+        }
     }
 
     public int LineNumber { get; set; }
