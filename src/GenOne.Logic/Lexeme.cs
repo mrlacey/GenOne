@@ -2,8 +2,16 @@
 
 public class Lexeme
 {
-    public int Start { get; set; }
-    public int End { get; set; }
+    public Lexeme(string text)
+    {
+        Text = text;
+    }
+
     public string Text { get; set; }
-    public LexemeCategory Category { get; set; }
+
+    public int Start { get; set; }
+
+    public int End { get; set; }
+
+    public LexemeCategory? Category { get; set; }
 }

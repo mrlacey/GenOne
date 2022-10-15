@@ -29,7 +29,7 @@ public static class CSharpGenerator
                     break;
                 case LineCategory.EnumDefinition:
                     // TODO: Get enum details from the line
-                    gd.Enums.Add(new EnumToGenerate() { });
+                    gd.Enums.Add(new EnumToGenerate("TODO") { });
                     break;
                 case LineCategory.PropertyDefinition:
                     // TODO: Get property details from the line and add to output

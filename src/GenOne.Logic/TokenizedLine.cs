@@ -14,7 +14,7 @@ public class TokenizedLine
 
     public string OriginalText { get; set; }
 
-    public List<Lexeme> Lexemes { get; set; }
+    public List<Lexeme> Lexemes { get; set; } = new();
 
-    public LineCategory Category { get; set; }
+    public LineCategory? Category { get; set; }
 }

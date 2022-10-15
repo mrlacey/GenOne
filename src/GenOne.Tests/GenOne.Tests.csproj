@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\GenOne.Logic\GenOne.Logic.csproj" />
+    <ProjectReference Include="..\GenOne.Logic\GenOne.Logic.csproj" />
   </ItemGroup>
 
 </Project>

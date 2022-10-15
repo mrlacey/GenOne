@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.VSIX", "src\GenOne.VSIX.csproj", "{277AB5BA-79AB-4DAA-B508-511990966ACF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.VSIX", "src\GenOne.Vsix\GenOne.VSIX.csproj", "{277AB5BA-79AB-4DAA-B508-511990966ACF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.Logic", "src\GenOne.Logic\GenOne.Logic.csproj", "{461DBA2C-3CC4-49E3-B1A9-90644F9A8379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.Tests", "GenOne.Tests\GenOne.Tests.csproj", "{2719E8A5-D53F-41CB-8A27-833AA312E325}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.Tests", "src\GenOne.Tests\GenOne.Tests.csproj", "{2719E8A5-D53F-41CB-8A27-833AA312E325}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
