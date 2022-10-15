@@ -9,4 +9,6 @@ public enum LexemeCategory
     EnumName,
     EnumValue,
     BaseName,
+    MethodName,
+    MethodArgument,
 }

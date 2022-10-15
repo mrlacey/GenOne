@@ -18,6 +18,28 @@ public static class Classifier
     {
         // TODO: do the actual classification of the line (and each lexeme--or should that be done at the time of tokenizing?)
 
+        if (line.Lexemes.Count >= 4)
+        {
+            if (line.Lexemes[0].Text == "let"
+            && line.Lexemes[1].Text == "the")
+            {
+                line.Lexemes[2].Category = LexemeCategory.TypeName;
+                line.Lexemes[3].Category = LexemeCategory.MethodName;
+
+                if (line.Lexemes.Count > 4)
+                {
+                    for (int i = 4; i < line.Lexemes.Count; i++)
+                    {
+                        line.Lexemes[i].Category = LexemeCategory.MethodArgument;
+                    }
+                }
+
+                line.Category = LineCategory.MethodDefinition;
+
+                return line;
+            }
+        }
+
         if (line.Lexemes.Count == 4)
         {
             if (line.Lexemes[0].Text == "let"
@@ -68,6 +90,7 @@ public static class Classifier
         {
             line.Category = LineCategory.Unknown;
         }
+
         return line;
     }
 }

@@ -64,6 +64,25 @@ public class CodeGenerator
                     break;
                 case LineCategory.MethodDefinition:
                     // TODO: Get method details from the line and add to output
+                    var typeForMethod = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
+
+                    if (!gd.Types.Any(t => t.Name == typeForMethod))
+                    {
+                        gd.Types.Add(new TypeToGenerate(typeForMethod));
+                    }
+
+                    var methName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.MethodName).Text;
+
+                    var newMethod = new MethodToGenerate(methName);
+
+                    foreach (var item in line.Lexemes.Where(l => l.Category == LexemeCategory.MethodArgument))
+                    {
+                        newMethod.Args.Add((item.Text, item.Text));
+                    }
+
+                    gd.Types.Single(t => t.Name == typeForMethod).Methods.Add(newMethod);
+
+
                     break;
                 default:
                     break;

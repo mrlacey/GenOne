@@ -153,7 +153,7 @@ public class SingleLineReferenceTests
         Assert.Single(gd.Types.Single().Methods);
         Assert.Equal("Separate", gd.Types.Single().Methods.Single().Name);
         Assert.Single(gd.Types.Single().Methods.Single().Args);
-        Assert.Equal("waters", gd.Types.Single().Methods.Single().Args.Single().Name);
+        Assert.Equal("Waters", gd.Types.Single().Methods.Single().Args.Single().Name);
         Assert.Equal("Waters", gd.Types.Single().Methods.Single().Args.Single().Datatype);
     }
 
