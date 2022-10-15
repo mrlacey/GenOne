@@ -11,7 +11,7 @@ namespace GenOne.Generators
     {
         public const string Name = nameof(GenOneCsharpGenerator);
 
-        public const string Description = "Create C# files from GenOne docs";
+        public const string Description = "Create C# files from .gen1 docs";
 
         public override string GetDefaultExtension() => ".cs";
 

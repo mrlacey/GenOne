@@ -50,6 +50,7 @@
       <Generator>VsctGenerator</Generator>
       <LastGenOutput>GenOne.cs</LastGenOutput>
     </VSCTCompile>
+    <Compile Include="Generators\GenOnePythonGenerator.cs" />
     <Compile Include="Generators\GenOneCsharpGenerator.cs" />
     <Compile Include="GenOne.cs">
       <AutoGen>True</AutoGen>
