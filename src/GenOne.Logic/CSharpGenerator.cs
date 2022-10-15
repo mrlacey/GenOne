@@ -1,4 +1,7 @@
-﻿namespace GenOne.Logic;
+﻿using System.Linq;
+using System.Text;
+
+namespace GenOne.Logic;
 
 public static class CSharpGenerator
 {
@@ -7,7 +10,16 @@ public static class CSharpGenerator
         var toGenerate = DetermineGeneration(lines);
 
         // TODO: do code generation based on the contents of toGenerate
-        return "// some generated C# code";
+        var sb = new StringBuilder();
+
+        foreach (var type in toGenerate.Types)
+        {
+            sb.AppendLine($"partial class {type.Name}");
+            sb.AppendLine("{");
+            sb.AppendLine("}");
+        }
+
+        return sb.ToString();
     }
 
     public static GenerationDetails DetermineGeneration(List<TokenizedLine> lines)
@@ -23,6 +35,13 @@ public static class CSharpGenerator
                     break;
                 case LineCategory.TypeDefinition:
                     // TODO: Get type details from the line and add to output
+
+                    var tName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
+
+                    if (!gd.Types.Any(t => t.Name == tName))
+                    {
+                        gd.Types.Add(new TypeToGenerate(tName));
+                    }
                     break;
                 case LineCategory.TypeInheritence:
                     // TODO: Get inheritence details from the line and add to output
