@@ -106,7 +106,6 @@ public class CSharpGenerator : CodeGenerator
                 }
 
                 sb.AppendLine(") { }");
-
             }
 
             sb.AppendLine("}");
