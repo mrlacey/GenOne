@@ -4,4 +4,6 @@ public enum LexemeCategory
 {
     Unknown,
     KeyWord,
+    TypeName,
+    Punctuation,
 }

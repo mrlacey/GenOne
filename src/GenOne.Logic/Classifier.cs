@@ -17,8 +17,19 @@ public static class Classifier
     public static TokenizedLine ClassifyLine(TokenizedLine line)
     {
         // TODO: do the actual classification of the line (and each lexeme--or should that be done at the time of tokenizing?)
-        line.Category = LineCategory.Unknown;
 
+        if (line.Lexemes.Count == 4
+            && line.Lexemes[0].Text == "let"
+            && line.Lexemes[1].Text == "there"
+            && line.Lexemes[2].Text == "be")
+        {
+            line.Lexemes[3].Category = LexemeCategory.TypeName;
+            line.Category = LineCategory.TypeDefinition;
+        }
+        else
+        {
+            line.Category = LineCategory.Unknown;
+        }
         return line;
     }
 }
