@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 	<ItemGroup>
 		<Content Include="GrammarRef.gen1">
@@ -16,6 +16,11 @@
 		<AutoGen>True</AutoGen>
 		<DependentUpon>GrammarRef.gen1</DependentUpon>
 	</Compile>
+	<Compile Update="RealWorld.cs">
+	  <DependentUpon>RealWorld.gen1</DependentUpon>
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	</Compile>
 	</ItemGroup>
 	<ItemGroup>
 	<Compile Update="Scripture.cs">
@@ -23,6 +28,10 @@
 	  <AutoGen>True</AutoGen>
 	  <DependentUpon>Scripture.gen1</DependentUpon>
 	</Compile>
+	<None Update="RealWorld.gen1">
+	  <LastGenOutput>RealWorld.cs</LastGenOutput>
+	  <Generator>GenOneCsharpGenerator</Generator>
+	</None>
 	  <None Update="Scripture.gen1">
 	    <Generator>GenOneCsharpGenerator</Generator>
 	    <LastGenOutput>Scripture.cs</LastGenOutput>
