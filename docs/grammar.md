@@ -1,6 +1,6 @@
 # Gen 1 - Grammar
 
-The initial grammar, with examples producing C#, and Python under development
+The initial grammar, with examples producing C#.
 
 The following notation is used:
 
@@ -51,6 +51,9 @@ partial class User : Person
 }
 ```
 
+```py
+class User(Person):```
+
 ## Enum creation
 
 **`'let there be [a[n]] {enumName} <of|with> the kinds {enumValueA}[, {enumValueB}, ....]'`**
@@ -73,6 +76,18 @@ enum UserType
 }
 ```
 
+produces:
+
+```py
+class UserType(Enum):
+    Attendee = 1
+    Helper = 2
+    Organiser = 3
+    Sponsor = 4
+```
+
+
+
 ## Property Definition 1 - simple
 
 **`'let there be [a[n]] {propertyName}[({dataType})] in [the] {typeName}'`**
@@ -92,6 +107,12 @@ partial class Earth
 }
 ```
 
+```py
+class Earth:
+    def __init__(self, Seas):
+        self.seas = Seas
+```
+
 E.g. 2
 
 ```ascii
@@ -105,6 +126,14 @@ partial class Earth
 {
     public BodyOfWater Seas { get; set; }
 }
+```
+
+```py
+class BodyOfWater:
+
+class Earth:
+    def __init__(self, Seas):
+        self.seas = BodyOfWater(Seas)
 ```
 
 ## Property Definition 2 - simple alternative
@@ -123,9 +152,13 @@ produces:
 
 ```cs
 partial class Sea
-{
-    public string Depth { get; set; }
-}
+    def __init__(self, Depth):
+        self.depth = Depth
+```
+
+```py
+class Sea:
+    Depth
 ```
 
 E.g. 2
@@ -160,6 +193,12 @@ partial class Sea
 {
     public IEnumerable<Fish> Fishes { get; set; }
 }
+```
+
+```py
+
+class Sea
+    fish = []
 ```
 
 ## Property Definition 4 - required properties
@@ -207,6 +246,12 @@ partial class Sun
 }
 ```
 
+```py
+class Sun:
+    def shine(self):
+    # empty - because this may need a definition
+```
+
 ```ascii
 let the Expanse Separate Waters
 ```
@@ -218,4 +263,11 @@ partial class Expanse
 {
     partial void Separate(Waters waters);
 }
+```
+
+```py
+class Waters:
+
+class Expanse
+    def Separate(Waters waters):
 ```
