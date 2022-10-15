@@ -24,7 +24,6 @@ public class CodeGenerator
                     }
                     break;
                 case LineCategory.TypeInheritence:
-                    // TODO: Get inheritence details from the line and add to output
                     var thisName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
 
                     var baseName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.BaseName).Text;
@@ -47,8 +46,6 @@ public class CodeGenerator
 
                     break;
                 case LineCategory.EnumDefinition:
-                    // TODO: Get enum details from the line
-
                     var enum2gen = new EnumToGenerate(line.Lexemes.First(l => l.Category == LexemeCategory.EnumName).Text);
 
                     foreach (var lexeme in line.Lexemes.Where(l => l.Category == LexemeCategory.EnumValue))
@@ -61,9 +58,44 @@ public class CodeGenerator
                     break;
                 case LineCategory.PropertyDefinition:
                     // TODO: Get property details from the line and add to output
+
+                    var typeForProperty = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
+
+                    if (!gd.Types.Any(t => t.Name == typeForProperty))
+                    {
+                        gd.Types.Add(new TypeToGenerate(typeForProperty));
+                    }
+
+                    var propName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.PropertyName).Text;
+
+                    var propType = string.Empty;
+
+                    // TODO: assign datatype in Classifier
+                    if (propName.Contains("(") && propName.EndsWith(")"))
+                    {
+                        propType = propName.Substring(propName.IndexOf('(') + 1, propName.Length - propName.IndexOf('(') - 2);
+
+                        propName = propName.Substring(0, propName.IndexOf('('));
+                    }
+
+                    var datatypeLexeme = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.PropertyType);
+
+                    if (datatypeLexeme != null)
+                    {
+                        propType = datatypeLexeme.Text;
+                    }
+
+                    var newProp = new PropertyToGenerate(propName);
+
+                    if (!string.IsNullOrEmpty(propType))
+                    {
+                        newProp.DataType = propType;
+                    }
+
+                    gd.Types.Single(t => t.Name == typeForProperty).Properties.Add(newProp);
+
                     break;
                 case LineCategory.MethodDefinition:
-                    // TODO: Get method details from the line and add to output
                     var typeForMethod = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
 
                     if (!gd.Types.Any(t => t.Name == typeForMethod))
@@ -81,7 +113,6 @@ public class CodeGenerator
                     }
 
                     gd.Types.Single(t => t.Name == typeForMethod).Methods.Add(newMethod);
-
 
                     break;
                 default:

@@ -1,4 +1,6 @@
-﻿namespace GenOne.Logic;
+﻿using System.Linq;
+
+namespace GenOne.Logic;
 
 public static class Classifier
 {
@@ -17,6 +19,44 @@ public static class Classifier
     public static TokenizedLine ClassifyLine(TokenizedLine line)
     {
         // TODO: do the actual classification of the line (and each lexeme--or should that be done at the time of tokenizing?)
+
+        if (line.Lexemes.Count >= 6)
+        {
+            if (line.OriginalText.StartsWith("let there be")
+                && line.Lexemes.Any(l => l.Text == "in"))
+            {
+                var propLexme = line.Lexemes[3];
+
+                if (propLexme.Text == "a" || propLexme.Text == "an")
+                {
+                    propLexme = line.Lexemes[4];
+                }
+
+                propLexme.Category = LexemeCategory.PropertyName;
+
+                line.Lexemes.Last().Category = LexemeCategory.TypeName;
+
+                line.Category = LineCategory.PropertyDefinition;
+
+                return line;
+            }
+            else if (line.OriginalText.StartsWith("let the ")
+                && line.Lexemes[3].Text == "have"
+                && (line.OriginalText.Contains("have a ") || line.OriginalText.Contains("have an ")))
+            {
+                line.Lexemes[2].Category = LexemeCategory.TypeName;
+                line.Lexemes[5].Category = LexemeCategory.PropertyName;
+
+                if (line.Lexemes.Count == 9)
+                {
+                    line.Lexemes[8].Category = LexemeCategory.PropertyType;
+                }
+
+                line.Category = LineCategory.PropertyDefinition;
+
+                return line;
+            }
+        }
 
         if (line.Lexemes.Count >= 4)
         {

@@ -11,4 +11,6 @@ public enum LexemeCategory
     BaseName,
     MethodName,
     MethodArgument,
+    PropertyName,
+    PropertyType,
 }
