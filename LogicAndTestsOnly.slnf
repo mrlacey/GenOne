@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "GenOne.sln",
+    "projects": [
+      "src\\GenOne.Logic\\GenOne.Logic.csproj",
+      "src\\GenOne.Tests\\GenOne.Tests.csproj"
+    ]
+  }
+}
