@@ -85,6 +85,7 @@ public class CodeGenerator
 
                     if (line.Lexemes.Any(l => l.Category == LexemeCategory.PluralIndicator))
                     {
+                        // TODO: don't do C# specifics here
                         propType = $"IEnumerable<{propType}>";
                     }
 

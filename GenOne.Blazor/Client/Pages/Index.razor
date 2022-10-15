@@ -1,0 +1,60 @@
+﻿@page "/"
+@using GenOne.Logic
+
+<PageTitle>GenOne</PageTitle>
+
+<h1>Hello, Kingdom Code!</h1>
+
+Welcome to your new app.
+
+<div>
+
+    <textarea rows="10" cols="120" @bind="inputGen1"></textarea>
+</div>
+
+<div>
+    <textarea rows="10" cols="120" @bind="outputOfGen1" ></textarea>
+</div>
+
+<div>
+    <button @onclick="OnGenerateCSharp">Generate C#</button>
+    <button @onclick="OnGeneratePython">Generate Python</button>
+</div>
+
+
+
+@*
+<SurveyPrompt Title="How is Blazor working for you?" />
+*@
+
+
+
+
+@code {
+    private string inputGen1 = "";
+    private string outputOfGen1 = "";
+
+    private void OnGenerateCSharp()
+    {
+        var lines = inputGen1.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+
+        var tLines = Tokenizer.TokenizeLines(lines.ToList());
+        var cLines = Classifier.ClassifyLines(tLines);
+
+        var generated = CSharpGenerator.GenerateOutput(cLines);
+
+        outputOfGen1 = generated;
+    }
+
+    private void OnGeneratePython()
+    {
+        var lines = inputGen1.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+
+        var tLines = Tokenizer.TokenizeLines(lines.ToList());
+        var cLines = Classifier.ClassifyLines(tLines);
+
+        var generated = PythonGenerator.GenerateOutput(cLines);
+
+        outputOfGen1 = generated;
+    }
+}
