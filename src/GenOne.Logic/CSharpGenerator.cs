@@ -12,6 +12,11 @@ public class CSharpGenerator : CodeGenerator
         // TODO: do code generation based on the contents of toGenerate
         var sb = new StringBuilder();
 
+        foreach (var cmnt in toGenerate.CommentLines)
+        {
+            sb.AppendLine($"// {cmnt}");
+        }
+
         foreach (var enm in toGenerate.Enums)
         {
             sb.AppendLine($"enum {enm.Name}");
