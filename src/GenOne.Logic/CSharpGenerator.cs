@@ -3,7 +3,7 @@ using System.Text;
 
 namespace GenOne.Logic;
 
-public static class CSharpGenerator
+public class CSharpGenerator : CodeGenerator
 {
     public static string GenerateOutput(List<TokenizedLine> lines)
     {
@@ -19,69 +19,75 @@ public static class CSharpGenerator
 
             foreach (var ev in enm.Values)
             {
-                sb.AppendLine($"{ev},");
+                sb.AppendLine($"    {ev},");
             }
 
             sb.AppendLine("}");
         }
 
-
         foreach (var type in toGenerate.Types)
         {
-            sb.AppendLine($"partial class {type.Name}");
+            if (!string.IsNullOrWhiteSpace(type.BaseClass))
+            {
+                sb.AppendLine($"partial class {type.Name} : {type.BaseClass}");
+            }
+            else
+            {
+                sb.AppendLine($"partial class {type.Name}");
+            }
+
             sb.AppendLine("{");
+
+            foreach (var prop in type.Properties.Where(p => p.IsRequired))
+            {
+                // TODO: add constructor
+
+
+                ////foreach (var arg in meth.Args)
+                ////{
+                ////    sb.AppendLine($"        {arg.Name} = {arg.Name};");
+                ////}
+
+                ////sb.AppendLine("}}"); ;
+            }
+
+            foreach (var prop in type.Properties)
+            {
+                if (prop.IsRequired)
+                {
+                    sb.AppendLine($"    public {prop.DataType} {prop.Name} {{ get; init; }}");
+                }
+                else
+                {
+                    sb.AppendLine($"    public {prop.DataType} {prop.Name} {{ get; set; }}");
+                }
+            }
+
+            foreach (var meth in type.Methods)
+            {
+                sb.Append($"    public partial void {meth.Name}(");
+
+                var hasArgs = false;
+
+                foreach (var arg in meth.Args)
+                {
+                    if (hasArgs)
+                    {
+                        sb.Append(", ");
+                    }
+
+                    hasArgs = true;
+
+                    sb.Append($"{arg.Datatype} {arg.Name}");
+                }
+
+                sb.AppendLine(") {{ }}");
+
+            }
+
             sb.AppendLine("}");
         }
 
         return sb.ToString();
-    }
-
-    public static GenerationDetails DetermineGeneration(List<TokenizedLine> lines)
-    {
-        var gd = new GenerationDetails();
-
-        foreach (var line in lines)
-        {
-            switch (line.Category)
-            {
-                case LineCategory.Unknown:
-                    gd.CommentLines.Add(line.OriginalText);
-                    break;
-                case LineCategory.TypeDefinition:
-                    var tName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.TypeName).Text;
-
-                    if (!gd.Types.Any(t => t.Name == tName))
-                    {
-                        gd.Types.Add(new TypeToGenerate(tName));
-                    }
-                    break;
-                case LineCategory.TypeInheritence:
-                    // TODO: Get inheritence details from the line and add to output
-                    break;
-                case LineCategory.EnumDefinition:
-                    // TODO: Get enum details from the line
-
-                    var enum2gen = new EnumToGenerate(line.Lexemes.First(l => l.Category == LexemeCategory.EnumName).Text);
-
-                    foreach (var lexeme in line.Lexemes.Where(l => l.Category == LexemeCategory.EnumValue))
-                    {
-                        // TODO: handle punctuation better
-                        enum2gen.Values.Add(lexeme.Text.TrimEnd(','));
-                    }
-
-                    gd.Enums.Add(enum2gen);
-                    break;
-                case LineCategory.PropertyDefinition:
-                    // TODO: Get property details from the line and add to output
-                    break;
-                case LineCategory.MethodDefinition:
-                    // TODO: Get method details from the line and add to output
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        return gd;
     }
 }

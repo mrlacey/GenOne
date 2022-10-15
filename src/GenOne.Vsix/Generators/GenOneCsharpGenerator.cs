@@ -33,6 +33,7 @@ namespace GenOne.Generators
             sb.AppendLine("*/");
             sb.AppendLine();
             sb.AppendLine($"namespace {FileNamespace};");
+            sb.AppendLine();
             sb.AppendLine($"{generated}");
 
             return Encoding.UTF8.GetBytes(sb.ToString());
