@@ -9,7 +9,7 @@ The following is a short outline describing how the generation will work.
 1. Classified lines are used to determine what to generate.
 1. The final output is then generated.
 
-Notes.
+Notes (for C#).
 
 - All generated classes are generated as `partial`.
 - Any line that cannot be classified fully is output as a comment.
