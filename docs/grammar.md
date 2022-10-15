@@ -1,6 +1,6 @@
 # Gen 1 - Grammar
 
-The initial grammar, with examples producing C#.
+The initial grammar, with examples producing C#, and Python under development
 
 The following notation is used:
 
@@ -27,6 +27,10 @@ produces:
 partial class User
 {
 }
+```
+
+```py
+class User:
 ```
 
 ## Type Inheritance
