@@ -66,7 +66,7 @@ public class CodeGenerator
 
                     var propName = line.Lexemes.FirstOrDefault(l => l.Category == LexemeCategory.PropertyName).Text;
 
-                    var propType = string.Empty;
+                    var propType = "string";
 
                     // TODO: assign datatype in Classifier
                     if (propName.Contains("(") && propName.EndsWith(")"))
