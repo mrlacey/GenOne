@@ -97,6 +97,11 @@ public class CodeGenerator
                         newProp.DataType = propType;
                     }
 
+                    if (line.Lexemes.Any(l => l.Category == LexemeCategory.RequiredPropertyIndicator))
+                    {
+                        newProp.IsRequired = true;
+                    }
+
                     gd.Types.Single(t => t.Name == typeForProperty).Properties.Add(newProp);
 
                     break;

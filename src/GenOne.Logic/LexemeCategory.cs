@@ -14,4 +14,5 @@ public enum LexemeCategory
     PropertyName,
     PropertyType,
     PluralIndicator,
+    RequiredPropertyIndicator,
 }

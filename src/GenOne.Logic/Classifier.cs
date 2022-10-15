@@ -22,8 +22,21 @@ public static class Classifier
 
         if (line.Lexemes.Count >= 6)
         {
-            if (line.OriginalText.StartsWith("let there be")
-                && line.Lexemes.Any(l => l.Text == "in"))
+            if (line.Lexemes.Count == 6
+                && line.Lexemes[0].Text == "the"
+                && line.Lexemes[2].Text == "must"
+                && line.Lexemes[3].Text == "have")
+            {
+                line.Lexemes[1].Category = LexemeCategory.TypeName;
+                line.Lexemes[2].Category = LexemeCategory.RequiredPropertyIndicator;
+                line.Lexemes[5].Category = LexemeCategory.PropertyName;
+
+                line.Category = LineCategory.PropertyDefinition;
+
+                return line;
+            }
+            else if (line.OriginalText.StartsWith("let there be")
+                            && line.Lexemes.Any(l => l.Text == "in"))
             {
                 var propLexme = line.Lexemes[3];
 
