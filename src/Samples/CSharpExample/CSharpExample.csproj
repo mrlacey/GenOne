@@ -16,13 +16,13 @@
 		<AutoGen>True</AutoGen>
 		<DependentUpon>GrammarRef.gen1</DependentUpon>
 	</Compile>
+	</ItemGroup>
+	<ItemGroup>
 	<Compile Update="Scripture.cs">
 	  <DesignTime>True</DesignTime>
 	  <AutoGen>True</AutoGen>
 	  <DependentUpon>Scripture.gen1</DependentUpon>
 	</Compile>
-	</ItemGroup>
-	<ItemGroup>
 	  <None Update="Scripture.gen1">
 	    <Generator>GenOneCsharpGenerator</Generator>
 	    <LastGenOutput>Scripture.cs</LastGenOutput>

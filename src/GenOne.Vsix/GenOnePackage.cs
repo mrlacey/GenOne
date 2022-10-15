@@ -16,6 +16,7 @@ namespace GenOne
     [ProvideCodeGenerator(typeof(GenOneCsharpGenerator), GenOneCsharpGenerator.Name, GenOneCsharpGenerator.Description, true, RegisterCodeBase = true)]
     [ProvideCodeGenerator(typeof(GenOnePythonGenerator), GenOnePythonGenerator.Name, GenOnePythonGenerator.Description, true, RegisterCodeBase = true)]
     [ProvideCodeGeneratorExtension(GenOneCsharpGenerator.Name, ".gen1")]
+    [ProvideCodeGeneratorExtension(GenOnePythonGenerator.Name, ".gen1py")]
     [ProvideUIContextRule(PackageGuids.CommandVisisiblityString,
         name: "GenOne files",
         expression: "IsGen1",

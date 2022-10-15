@@ -11,7 +11,7 @@ namespace GenOne
         public const string Name = "GenOne";
         public const string Description = @"Create C# files from .gen1 docs";
         public const string Language = "en-US";
-        public const string Version = "1.0.0.3";
+        public const string Version = "1.0.0.4";
         public const string Author = "Matt Lacey";
         public const string Tags = "";
     }
