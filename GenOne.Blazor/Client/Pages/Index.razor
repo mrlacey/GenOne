@@ -9,11 +9,12 @@ See <a href="https://github.com/mrlacey/GenOne">github.com/mrlacey/GenOne</a> fo
 
 <div>
 
-    <textarea rows="10" cols="120" @bind="inputGen1"></textarea>
-</div>
+    <textarea rows="8" cols="100" @bind="inputGen1"></textarea>
+
+    </div>
 
 <div>
-    <textarea rows="10" cols="120" @bind="outputOfGen1" ></textarea>
+    <textarea rows="8" cols="100" @bind="outputOfGen1" ></textarea>
 </div>
 
 <div>
@@ -31,7 +32,31 @@ See <a href="https://github.com/mrlacey/GenOne">github.com/mrlacey/GenOne</a> fo
 
 
 @code {
-    private string inputGen1 = "";
+    private string inputGen1 = @"let there be User
+
+the User is Person
+
+let there be a UserType with the kinds Attendee, Helper, Organiser, Sponsor
+
+let there be DeepSeas in the Earth
+
+let there be Seas(BodyOfWater) in the Earth
+
+let the Sea have a Depth
+
+let the Mountain have an Altitude
+
+let the Sea have a NauticalDepth that's a float
+
+let there be lots of Fishes(Fish) in the Sea
+
+the User must have a Name
+the User must have an Age
+
+let the Sun Shine
+
+let the Expanse Separate Waters";
+
     private string outputOfGen1 = "";
 
     private void OnGenerateCSharp()
