@@ -26,6 +26,35 @@ public static class Classifier
             line.Lexemes[3].Category = LexemeCategory.TypeName;
             line.Category = LineCategory.TypeDefinition;
         }
+        else if (line.Lexemes.Count >= 8
+            && line.OriginalText.StartsWith("let there be")
+            && (line.OriginalText.Contains("of the kinds") || line.OriginalText.Contains("with the kinds")))
+        {
+            var l4 = line.Lexemes[3];
+
+            if (l4.Text == "a" || l4.Text == "an")
+            {
+                l4 = line.Lexemes[4];
+            }
+
+            l4.Category = LexemeCategory.EnumName;
+
+            var foundValues = false;
+
+            foreach (var lexeme in line.Lexemes)
+            {
+                if (foundValues)
+                {
+                    lexeme.Category = LexemeCategory.EnumValue;
+                }
+                else if (lexeme.Text == "kinds")
+                {
+                    foundValues = true;
+                }
+            }
+
+            line.Category = LineCategory.EnumDefinition;
+        }
         else
         {
             line.Category = LineCategory.Unknown;

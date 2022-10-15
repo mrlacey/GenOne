@@ -6,4 +6,6 @@ public enum LexemeCategory
     KeyWord,
     TypeName,
     Punctuation,
+    EnumName,
+    EnumValue,
 }
