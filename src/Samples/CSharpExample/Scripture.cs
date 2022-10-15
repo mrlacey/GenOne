@@ -26,11 +26,8 @@ partial class sky
 {
     public IEnumerable<Light> lights { get; set; }
 }
-partial class user
+partial class Expanse
 {
-    public user(string name) {
-        name = name;
-    }
-    public string name { get; }
+    public partial void Separate(waters waters) { }
 }
 

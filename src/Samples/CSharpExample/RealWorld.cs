@@ -5,32 +5,13 @@
 
 namespace CSharpExample;
 
-enum Gender
-{
-    Male,
-    female,
-}
-partial class light
-{
-    public light(string brightness) {
-        brightness = brightness;
-    }
-    public string brightness { get; }
-    public partial void Shine() { }
-}
-partial class Person
-{
-    public Gender Sex { get; set; }
-}
-partial class sky
-{
-    public IEnumerable<Light> lights { get; set; }
-}
 partial class user
 {
     public user(string name) {
         name = name;
     }
     public string name { get; }
+    public string emailAddress { get; set; }
+    public partial void Authenticate() { }
 }
 
