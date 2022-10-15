@@ -79,7 +79,7 @@ public class CSharpGenerator : CodeGenerator
             {
                 if (prop.IsRequired)
                 {
-                    sb.AppendLine($"    public {prop.DataType} {prop.Name} {{ get; init; }}");
+                    sb.AppendLine($"    public {prop.DataType} {prop.Name} {{ get; }}");
                 }
                 else
                 {
