@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<Content Include="GrammarRef.gen1">
+			<Generator>GenOneCsharpGenerator</Generator>
+			<SubType>Designer</SubType>
+			<LastGenOutput>GrammarRef.cs</LastGenOutput>
+		</Content>
+	<Compile Update="GrammarRef.cs">
+		<DesignTime>True</DesignTime>
+		<AutoGen>True</AutoGen>
+		<DependentUpon>GrammarRef.gen1</DependentUpon>
+	</Compile>
+	<Compile Update="Scripture.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>Scripture.gen1</DependentUpon>
+	</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="Scripture.gen1">
+	    <Generator>GenOneCsharpGenerator</Generator>
+	    <LastGenOutput>Scripture.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+</Project>

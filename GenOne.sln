@@ -5,9 +5,13 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.VSIX", "src\GenOne.Vsix\GenOne.VSIX.csproj", "{277AB5BA-79AB-4DAA-B508-511990966ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.Logic", "src\GenOne.Logic\GenOne.Logic.csproj", "{461DBA2C-3CC4-49E3-B1A9-90644F9A8379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenOne.Logic", "src\GenOne.Logic\GenOne.Logic.csproj", "{461DBA2C-3CC4-49E3-B1A9-90644F9A8379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenOne.Tests", "src\GenOne.Tests\GenOne.Tests.csproj", "{2719E8A5-D53F-41CB-8A27-833AA312E325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenOne.Tests", "src\GenOne.Tests\GenOne.Tests.csproj", "{2719E8A5-D53F-41CB-8A27-833AA312E325}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{93218E0B-E420-4EF9-AE2D-40A9A1685D95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExample", "src\Samples\CSharpExample\CSharpExample.csproj", "{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,9 +45,20 @@ Global
 		{2719E8A5-D53F-41CB-8A27-833AA312E325}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2719E8A5-D53F-41CB-8A27-833AA312E325}.Release|x86.ActiveCfg = Release|Any CPU
 		{2719E8A5-D53F-41CB-8A27-833AA312E325}.Release|x86.Build.0 = Release|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Debug|x86.Build.0 = Debug|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Release|x86.ActiveCfg = Release|Any CPU
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C79F6847-95E7-4346-BCF3-AEAC2D5D6D71} = {93218E0B-E420-4EF9-AE2D-40A9A1685D95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {08603BA9-0B80-4E9D-BC05-1113C75183DC}
