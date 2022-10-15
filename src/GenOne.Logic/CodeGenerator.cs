@@ -33,6 +33,17 @@ public class CodeGenerator
                     {
                         gd.Types.Add(new TypeToGenerate(thisName) { BaseClass = baseName });
                     }
+                    else
+                    {
+                        foreach (var gdt in gd.Types)
+                        {
+                            if (gdt.Name == thisName)
+                            {
+                                gdt.BaseClass = baseName;
+                                break;
+                            }
+                        }
+                    }
 
                     break;
                 case LineCategory.EnumDefinition:
