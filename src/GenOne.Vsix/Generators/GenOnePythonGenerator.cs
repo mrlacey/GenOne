@@ -18,7 +18,7 @@ namespace GenOne.Generators
             var lines = inputFileContent.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
 
             var tLines = Tokenizer.TokenizeLines(lines.ToList());
-            var cLines = Classifier.ClassifyLines(tLines);
+            var cLines = Logic.Classifier.ClassifyLines(tLines);
 
             var generated = PythonGenerator.GenerateOutput(cLines);
 
