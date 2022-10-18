@@ -4,7 +4,7 @@
 ![Built as part of BUILD](https://img.shields.io/badge/KingdomCode-Build-blueviolet)
 ![GitHub](https://img.shields.io/github/license/mrlacey/GenOne)
 
-Building on the idea that part of Genesis 1 "look a bit like a DSL for defining types." This is an experiment to see what such a DSL may look like.
+Building on the idea that parts of Genesis 1 "look a bit like a DSL for defining types." This is an experiment to see what such a DSL may look like.
 
 This was part of the [Kingdom Code 2022 Build hackathon](https://kingdomcode.org.uk/build/).
 
