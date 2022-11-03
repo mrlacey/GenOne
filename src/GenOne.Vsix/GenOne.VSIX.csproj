@@ -51,6 +51,21 @@
       <LastGenOutput>GenOne.cs</LastGenOutput>
     </VSCTCompile>
     <Compile Include="Classifier\GenOne.cs" />
+    <Compile Include="Classifier\GenOneBaseNameFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneClassificationTypes.cs" />
+    <Compile Include="Classifier\GenOneClassifier.cs" />
+    <Compile Include="Classifier\GenOneClassifierProvider.cs" />
+    <Compile Include="Classifier\GenOneEnumNameFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneEnumValueFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneKeywordFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneMethodArgumentFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneMethodNameFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOnePluralIndicatorFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOnePropertyNameFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOnePropertyTypeFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOnePunctuationFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneRequiredPropIndicatorFormatDefinition.cs" />
+    <Compile Include="Classifier\GenOneTypeNameFormatDefinition.cs" />
     <Compile Include="Generators\GenOnePythonGenerator.cs" />
     <Compile Include="Generators\GenOneCsharpGenerator.cs" />
     <Compile Include="GenOne.cs">
