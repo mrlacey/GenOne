@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="GenOne.f7f221c5-6a9c-42f4-b3c0-e2682cad6f68" Version="1.3" Language="en-US" Publisher="Matt Lacey" />
+        <Identity Id="GenOne.f7f221c5-6a9c-42f4-b3c0-e2682cad6f68" Version="1.3.1" Language="en-US" Publisher="Matt Lacey" />
         <DisplayName>GenOne</DisplayName>
         <Description xml:space="preserve">Create C# files from .gen1 docs</Description>
         <MoreInfo>https://github.com/mrlacey/GenOne</MoreInfo>
@@ -12,6 +12,9 @@
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
             <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+            <ProductArchitecture>arm64</ProductArchitecture>
         </InstallationTarget>
     </Installation>
     <Dependencies>
